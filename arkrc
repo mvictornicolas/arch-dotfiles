@@ -1,0 +1,17 @@
+[ExtractDialog]
+DirHistory[$e]=$HOME/Downloads/,$HOME/dev/,$HOME/Pictures/
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME,file:$HOME/dev
+Recent URLs[$e]=file:$HOME/Pictures/,file:$HOME/dev/,file:$HOME/Downloads/,file:$HOME/
+detailViewIconSize=16
+
+[MainWindow]
+State=AAAA/wAAAAD9AAAAAAAAAb0AAAJ9AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+StatusBar=Disabled
+ToolBarsMovable=Disabled
+eDP-1 Height 1366x768=691
+eDP-1 Width 1366x768=445
+eDP-1 XPosition 1366x768=461
+eDP-1 YPosition 1366x768=69
+splitterSizes=294,147

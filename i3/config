@@ -27,7 +27,7 @@ font pango:monospace 15
 #font pango:DejaVu Sans Mono 8
 
 # start a terminal. We use kitty.
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+slash kill
@@ -48,14 +48,23 @@ bindsym $mod+Shift+e exec --no-startup-id rofi -show run -theme Monokai
 
 # Launch Polybar. Take a look at ~/.confi/polybar/config to
 # configure the bar.
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --shapes
 
 # Display Wallpaper, always.
 exec_always feh --bg-fill /usr/share/backgrounds/i3/wall.png
 
 exec --no-startup-id guake
 exec --no-startup-id copyq
-exec --no-startup-id pulseaudio -D
+exec --no-startup-id gnome-clocks
+exec --no-startup-id systemctl start docker
+
+# Set CTRL to Caps
+# Set keydown and keyup to change layout, so it works with qwerty shortcuts on dvorak layout
+#exec modmap ~/.Xmodmap
+#bindcode 25 exec setxkbmap br
+#bindcode 25 --release exec setxkbmap br dvorak
+
+# exec --no-startup-id pulseaudio -D
 
 # Provide Gaps to Windows. Increase/Decrease as you like.
 gaps inner 7
@@ -101,19 +110,24 @@ exec --no-startup-id nm-applet
 #bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #Volume Control in ALG i3
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+#bindsym XF86AudioMute exec amixer -q set Master toggle
 
-##Brightness Control in ALG i3
+
+# volume
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+
+# gradular volume Control in ALG i3
 bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10
 
 #bindsym XF86AudioPlayPause exec playerctl play-pause
 #bindsym XF86AudioPause exec playerctl pause
-bindcode 164 exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+#bindcode 164 exec playerctl play-pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -146,10 +160,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # 3] split in horizontal orientation
-bindsym $mod+d split h
+bindsym $mod+i split h
 
 # 4] split in vertical orientation
-bindsym $mod+Shift+d split v
+bindsym $mod+Shift+i split v
 
 # 5] enter fullscreen mode for the focused container
 bindsym $mod+u fullscreen toggle
@@ -245,6 +259,12 @@ mode "resize" {
 bindsym $mod+p mode "resize"
 
 # Others
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+F12 move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+F12 scratchpad show
+
 bindsym $mod+Tab workspace back_and_forth
 bindsym Print exec flameshot gui
 floating_minimum_size 75 x 50
@@ -267,9 +287,9 @@ for_window [class="(?i)firefox" instance="^(?!Navigator$)"] floating enable, mov
 # for_window [class="nameofapp"] move to workspace $wsno.
 # WS No. 5 has been used as example.
 # Note: You will have to launch the program from a program launcher (rofi).
-for_window [class="firefox"] move to workspace $ws3
-for_window [class="code"] move to workspace $ws5
-for_window [class="teams"] move to workspace $ws1
+# for_window [class="firefox"] move to workspace $ws3
+# for_window [class="code"] move to workspace $ws5
+# for_window [class="teams"] move to workspace $ws1
 
 # The following way allows programs to be launched with a
 # defined keybinding, on a certain workspace, without

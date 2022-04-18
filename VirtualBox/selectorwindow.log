@@ -1,0 +1,18 @@
+00:00:00.510149 VirtualBox GUI VM Selector Window 6.1.32 r149290 linux.amd64 (Feb 10 2022 14:02:19) release log
+00:00:00.510151 Log opened 2022-04-14T19:16:48.055625000Z
+00:00:00.510152 Build Type: release
+00:00:00.510155 OS Product: Linux
+00:00:00.510156 OS Release: 5.17.1-arch1-1
+00:00:00.510157 OS Version: #1 SMP PREEMPT Mon, 28 Mar 2022 20:55:33 +0000
+00:00:00.510187 DMI Product Name: 81S9
+00:00:00.510195 DMI Product Version: Lenovo IdeaPad S145-15IWL
+00:00:00.510200 Firmware type: UEFI
+00:00:00.511258 Secure Boot: Disabled
+00:00:00.511312 Host RAM: 11849MB (11.5GB) total, 5927MB (5.7GB) available
+00:00:00.511316 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:00.511317 Process ID: 16783
+00:00:00.511318 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.511365 Qt version: 5.15.3
+00:00:00.551978 GUI: UIMediumEnumerator: Medium-enumeration started...
+00:00:01.516844 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 6x41 x 1354x721
+00:00:01.538354 GUI: UIMediumEnumerator: Medium-enumeration finished!
